@@ -1,0 +1,115 @@
+*{
+    margin: 0;
+}
+body{
+    background-image: url("background.jpg");
+    background-repeat: no-repeat;
+    background-color: black;
+    background-attachment: fixed;
+    background-position: top center;
+}
+header{
+    font-size: small;
+    background-color: rgb(36, 51, 51);
+    color: rgb(93, 104, 104);
+}
+nav{
+    font-size: large;
+    color: rgb(218, 225, 238);
+}
+footer{
+    bottom: 0;
+    background-color: rgb(51, 52, 56);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: small;
+    color: rgb(218, 225, 238);
+}
+header, footer{
+    position: fixed;
+    z-index: 1;
+    height: 50px;
+    width: 100%;
+}
+section{
+    position:relative;
+    top: 50px;
+    /*agregar algo que permita scrollear y ver lo que tapa el footer*/
+    z-index: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:'info info info' 
+                        'main main details'
+                        'main main none';
+    box-sizing: border-box;
+    width: 975px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2%;
+    background-color: rgba(36, 36, 39, 0.555);
+    color: rgb(218, 225, 238);
+}
+.profileInfo{
+    grid-area: info; 
+    display: grid;
+    height: 200px;
+    grid-template-areas: 'icono icono medal';
+}
+.content{
+    grid-area: main;
+}
+.details{
+    grid-area: details;
+}
+.icono{
+    grid-area: icono;
+    display: flex;
+}
+.medal{
+    grid-area: medal;
+}
+.details, .medal{
+    margin: 5px;
+}
+.medal p, .expositor, .expositor h3, .details, .game, .activity{ /*deberia haberlo hecho clase "background" y ya*/
+    background-color: rgba(36, 36, 39, 0.555);
+}
+.medal p, .expositor{
+    border-radius: 5px;
+}
+.expositor{
+    margin: 5px 0;
+    height: 200px;
+}
+.expositor h3{
+    padding: 5px;
+}
+.game{
+    margin: 5px 0;
+}
+span:hover{
+    cursor: pointer;
+    color:white;
+}
+.details ul:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+.achievements > div{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    margin-left: 4.5%;
+    margin-bottom: 5px;
+}
+.achievements img{
+    width: 64px;
+    height: 64px;
+    margin-left: 4.5%;
+    margin-bottom: 5px;
+}
+@media screen and (max-width: 1000px){
+    section{
+        width: 100%;
+    }
+}
